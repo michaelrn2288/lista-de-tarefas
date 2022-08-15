@@ -2,12 +2,31 @@ const inputNewTask = document.querySelector('.inputNewTask')
 const btnAddTask = document.querySelector('.btnAddTask')
 const taskList = document.querySelector('.taskList')
 
+function createTagWithClass (tag, tagClass) {
+    const newTag = document.createElement(tag)
+    newTag.classList.add(tagClass)
+    return newTag
+}
+
 function createNewTask(taskText) {
     const tagLi = document.createElement('li')
-    const tagSpan = document.createElement('span')
+    const tagSpanContainer = createTagWithClass ('span', 'spanContainer')
+    const tagSpanContent = createTagWithClass ('span', 'spanContent')
     const text = document.createTextNode(taskText + ' ')
-    tagSpan.appendChild(text)
-    tagLi.appendChild(tagSpan)
+    tagSpanContent.appendChild(text)
+    tagSpanContainer.appendChild(tagSpanContent)
+    tagLi.appendChild(tagSpanContainer)
+    createBtnTaskDone(tagLi)
+    createBtnDeleteElement(tagLi)
+    taskList.appendChild(tagLi)
+    saveTasks()
+}
+
+function renderSavedTasks(taskElement) {
+    const tagLi = document.createElement('li')
+    const tagSpanContainer = createTagWithClass('span', 'spanContainer')
+    tagSpanContainer.innerHTML = taskElement
+    tagLi.appendChild(tagSpanContainer)
     createBtnTaskDone(tagLi)
     createBtnDeleteElement(tagLi)
     taskList.appendChild(tagLi)
@@ -34,7 +53,7 @@ function createBtnTaskDone(htmlElement) {
 }
 
 function saveTasks() {
-    const taskElements = taskList.querySelectorAll('span')
+    const taskElements = taskList.querySelectorAll('.spanContainer')
     const taskTexts = []
 
     for (let task of taskElements) {
@@ -51,7 +70,7 @@ function addSavedTasks() {
     let tasks = localStorage.getItem('tasks')
     tasks = JSON.parse(tasks)
     for (let task of tasks) {
-        createNewTask(task)
+        renderSavedTasks(task)
     }
 }
 
@@ -75,19 +94,20 @@ taskList.addEventListener('click', (event) => {
         saveTasks()
 
     } else if (clickedElement.classList.contains('taskDoneButton')) {
-        const task = clickedElement.parentElement.querySelector('span')
-        task.setAttribute('class', 'taskDone')
+        const task = clickedElement.parentElement.querySelector('.spanContent')
+        task.classList.add('taskDone')
         clickedElement.classList.add('undoButton')
         clickedElement.textContent = 'undo'
         clickedElement.classList.remove('taskDoneButton')
+        saveTasks()
 
     } else if (clickedElement.classList.contains('undoButton')) {
-        const task = clickedElement.parentElement.querySelector('span')
+        const task = clickedElement.parentElement.querySelector('.spanContent')
         task.classList.remove('taskDone')
         clickedElement.classList.add('taskDoneButton')
         clickedElement.classList.remove('undoButton')
         clickedElement.textContent = 'done'
-
+        saveTasks()
     }
 })
 
