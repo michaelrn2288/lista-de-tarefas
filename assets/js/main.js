@@ -91,9 +91,4 @@ taskList.addEventListener('click', (event) => {
     }
 })
 
-
-
-
-
-
 addSavedTasks()
