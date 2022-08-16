@@ -10,11 +10,14 @@ function createTagWithClass (tag, tagClass) {
 
 function createNewTask(taskText) {
     const tagLi = document.createElement('li')
+    const checkBox = document.createElement('input')
+    checkBox.setAttribute('type', 'checkbox')
     const tagSpanContainer = createTagWithClass ('span', 'spanContainer')
     const tagSpanContent = createTagWithClass ('span', 'spanContent')
     const text = document.createTextNode(taskText + ' ')
     tagSpanContent.appendChild(text)
     tagSpanContainer.appendChild(tagSpanContent)
+    tagLi.appendChild(checkBox)
     tagLi.appendChild(tagSpanContainer)
     createBtnTaskDone(tagLi)
     createBtnDeleteElement(tagLi)
@@ -60,7 +63,6 @@ function saveTasks() {
         let taskText = task.innerHTML
         taskTexts.push(taskText)
     }
-    console.log(taskTexts)
 
     const tasksJSON = JSON.stringify(taskTexts)
     localStorage.setItem('tasks', tasksJSON)
