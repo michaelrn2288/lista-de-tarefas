@@ -7,19 +7,26 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Task List</title>
   <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/responsivity.css">
 </head>
 
 <body>
 
   <section class="container">
+    <div id="title-box">
     <h1>Task List</h1>
-    <p>
-      <input type="text" class="inputNewTask">
-      <button class="btnAddTask">Add new task</button>
-    </p>
+      <img src="./assets/img/task-list.webp" alt="notepad" id="title-image">
+  </div>
+      <h2>Create and organize your own task with this task manager!</h2>
+      <div class="input-label-pair">
+        <input type="text" class="inputNewTask" placeholder="insert your task here">
+        <button class="btnAddTask">Add task</button>
+      </div>
 
     <ul class="taskList"></ul>
   </section>
+
+  <footer><span id="footer-text">Created by Michael Rocha Nunes</span></footer>
 
   <script src="./assets/js/main.js"></script>
 </body>

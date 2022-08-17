@@ -1,62 +1,164 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 :root {
-  --primary-color: rgb(17, 86, 102);
-  --primary-color-darker: rgb(9, 48, 56);
+    --primary-color: rgb(199,222,255);
+    --darker-color: rgb(115, 162, 228);
+    --darker-color-2: rgb(0, 54, 136);
 }
 
 * {
-  box-sizing: border-box;
-  outline: 0;
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Roboto', Sans-Serif;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  background: var(--primary-color);
-  font-family: 'Open sans', sans-serif;
-  font-size: 1.3em;
-  line-height: 1.5em;
+    min-height: 100vh;
 }
 
 .container {
-  max-width: 640px;
-  margin: 50px auto;
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
+    max-width: 70em;
+    margin: 0 35px;
 }
 
-form input, form label, form button {
-  display: block;
-  width: 100%;
-  margin-bottom: 10px;
+#title-box {
+    display: flex;
+    flex-direction: row;
 }
 
-form input {
-  font-size: 24px;
-  height: 50px;
-  padding: 0 20px;
+#title-image {
+    order: 0;
+    height: 150px;
+    margin:56px 30px 70px 30px;
 }
 
-form input:focus {
-  outline: 1px solid var(--primary-color);
+h1 {
+    display: block;
+    width: fit-content;
+    margin:56px 0 50px 30px;
+    font-size: 6em;
+    order: 1;
+    line-height: 1.5em;
 }
 
-form button {
-  border: none;
-  background: var(--primary-color);
-  color: #fff;
-  font-size: 18px;
-  font-weight: 700;
-  height: 50px;
-  cursor: pointer;
-  margin-top: 30px;
+h1::before {
+    width: 100%;
+    height: 10px;
+    display: block;
+    background: var(--primary-color);
+    content: '';
+    position:absolute;
+    top: 43px;
+    left: 0;
+    overflow: hidden;
 }
 
-form button:hover {
-  background: var(--primary-color-darker);
+h1::after {
+    width: 100%;
+    height: 10px;
+    display: block;
+    background: var(--primary-color);
+    content: '';
+    position:absolute;
+    top: 210px;
+    left: 0;
+    overflow: hidden;
 }
+
+h2 {
+    margin-bottom: 40px;
+    width: fit-content;
+}
+
+h2::after {
+    display: block;
+    content: '';
+    background: var(--primary-color);
+    width: 100%;
+    height: 5px;
+}
+
+.inputNewTask {
+    height: 2em;
+    width: 30em;
+}
+
+ul {
+    background: var(--darker-color);
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+.btnAddTask {
+    margin-left: 2em;
+    height: 2em;
+    width: 10em;
+}
+
+
+li {
+    width: 50%;
+    margin: 0.5% 0;
+    height: fit-content;
+    overflow-wrap: break-word;
+}
+
+button {
+    position: absolute;
+    height: 1.6em;
+    background: white;
+    color: black;
+}
+
+.btnAddTask {
+    position: relative;
+}
+
+button:hover {
+    cursor: pointer;
+    background: var(--darker-color-2);
+    color: white;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    background: var(--darker-color-2);
+    margin-top: 5%;
+
+
+}
+
+#footer-text {
+    margin: auto;
+    display: block;
+    width:fit-content;
+    height: fit-content;
+    position: relative;
+    top: 25%;
+    font-size: 1.2em;
+    color: white;
+}
+
+.taskDoneButton, .undoButton  {
+    right: 30%;
+}
+
+.deleteButton {
+    right: 20%;
+    
+}
+
 
 .taskDone {
-  text-decoration:line-through;
-}
+    text-decoration:line-through;
+    width: 10em;
+
+  }
+
+  input:focus {
+    
+    box-shadow: 0 0 5px 5px var(--primary-color);
+  }

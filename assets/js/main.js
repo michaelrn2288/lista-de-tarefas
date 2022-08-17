@@ -10,14 +10,13 @@ function createTagWithClass (tag, tagClass) {
 
 function createNewTask(taskText) {
     const tagLi = document.createElement('li')
-    const checkBox = document.createElement('input')
-    checkBox.setAttribute('type', 'checkbox')
+    //const checkBox = document.createElement('input')
+    //checkBox.setAttribute('type', 'checkbox')
     const tagSpanContainer = createTagWithClass ('span', 'spanContainer')
     const tagSpanContent = createTagWithClass ('span', 'spanContent')
-    const text = document.createTextNode(taskText + ' ')
-    tagSpanContent.appendChild(text)
+    tagSpanContent.textContent = taskText
     tagSpanContainer.appendChild(tagSpanContent)
-    tagLi.appendChild(checkBox)
+    //tagLi.appendChild(checkBox)
     tagLi.appendChild(tagSpanContainer)
     createBtnTaskDone(tagLi)
     createBtnDeleteElement(tagLi)
@@ -53,6 +52,16 @@ function createBtnTaskDone(htmlElement) {
     taskDoneButton.innerText = 'done'
     taskDoneButton.setAttribute('class', 'taskDoneButton')
     htmlElement.appendChild(taskDoneButton)
+}
+
+function markTaskAsDone(element) {
+    const task = element.parentElement.querySelector('.spanContent')
+    task.classList.add('taskDone')
+}
+
+function markTaskAsUndone(element) {
+    const task = element.parentElement.querySelector('.spanContent')
+    task.classList.remove('taskDone')
 }
 
 function saveTasks() {
@@ -96,16 +105,14 @@ taskList.addEventListener('click', (event) => {
         saveTasks()
 
     } else if (clickedElement.classList.contains('taskDoneButton')) {
-        const task = clickedElement.parentElement.querySelector('.spanContent')
-        task.classList.add('taskDone')
+        markTaskAsDone(clickedElement)
         clickedElement.classList.add('undoButton')
         clickedElement.textContent = 'undo'
         clickedElement.classList.remove('taskDoneButton')
         saveTasks()
 
     } else if (clickedElement.classList.contains('undoButton')) {
-        const task = clickedElement.parentElement.querySelector('.spanContent')
-        task.classList.remove('taskDone')
+        markTaskAsUndone(clickedElement)
         clickedElement.classList.add('taskDoneButton')
         clickedElement.classList.remove('undoButton')
         clickedElement.textContent = 'done'
