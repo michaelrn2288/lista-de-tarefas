@@ -87,6 +87,8 @@ ul {
     background: var(--darker-color);
     font-size: 1.2em;
     margin-top: 10px;
+    list-style-type: none;
+    padding: 0;
 }
 
 .btnAddTask {
@@ -97,9 +99,18 @@ ul {
 
 
 li {
-    width: 50%;
     margin: 0.5% 0;
     height: fit-content;
+    padding-left: 10px;
+}
+
+li:nth-child(even) {
+    background:var(--primary-color);
+}
+
+.spanContent {
+    display:inline-block;
+    width: 50%;
     overflow-wrap: break-word;
 }
 
