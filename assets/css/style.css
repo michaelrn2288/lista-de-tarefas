@@ -127,8 +127,6 @@ footer {
     width: 100%;
     background: var(--darker-color-2);
     margin-top: 5%;
-
-
 }
 
 #footer-text {
@@ -148,17 +146,14 @@ footer {
 
 .deleteButton {
     right: 20%;
-    
 }
 
 
 .taskDone {
     text-decoration:line-through;
     width: 10em;
-
   }
 
   input:focus {
-    
     box-shadow: 0 0 5px 5px var(--primary-color);
   }
