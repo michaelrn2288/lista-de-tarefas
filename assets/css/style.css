@@ -14,7 +14,6 @@
 
 body {
     min-height: 100vh;
-    overflow: hidden;
 }
 
 .container {
@@ -26,7 +25,7 @@ body {
 #title-box {
     padding: 2%;
     margin-top: 15px;
-    width: 100vw;
+    width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -49,8 +48,6 @@ h1 {
     order: 1;
     align-self: center;
 }
-
-
 
 h2 {
     margin-bottom: 40px;
@@ -83,7 +80,6 @@ ul {
     height: 2em;
     width: 10em;
 }
-
 
 li {
     height: fit-content;
