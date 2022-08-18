@@ -1,45 +1,29 @@
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
+
+    body {
+        font-size: 0.9em;
+    }
+
     #title-box {
         flex-direction: column;
+        justify-content: flex-start;
     }
 
     #title-image {
-        visibility: hidden;
-        width: 0;
-        height: 0;
-        margin-bottom: 0;
+        width: 100px;
     }
 
     h1 {
-        font-size: 4em;
+        text-align: center;
+        font-size: 3em;
         order: -1;
-        margin: 56px auto 0 auto;
-    }
-
-    h1::after {
-        top: 150px;
     }
 
 
 }
 
-@media screen and (max-width: 500px) {
-    body {
-        font-size: 0.9em;
-    }
+@media screen and (max-width: 700px) {
 
-    h1 {
-        font-size: 3em;
-    }
-
-    h1::after {
-        top: 120px;
-    }
-
-    .container {
-        margin-left:0;
-        margin-right: 0;
-    }
 
     .input-label-pair {
         display: flex;
@@ -51,19 +35,22 @@
 
     .inputNewTask {
         height: 2em;
-        width: 20em;
-        margin-left: 20%;
+        width: auto;
+        margin: 0 4%;
+    }
+
+    button {
+        height: 1.5em;
     }
 
     .btnAddTask {
         margin-left: 33%;
         margin-top: 22px;
-        height: 2em;
         width: 10em;
     }
 
     .deleteButton {
-        right: 5%;
+        right: 6%;
     }
 
 }
